@@ -25,7 +25,7 @@
     <h1 class="mb-4 text-center">Iniciar Sesión</h1>
     <form @submit.prevent="handleLogin" class="card p-4 shadow col-6 mx-auto">
       <div class="mb-3">
-        <label for="email" class="form-label">Ingresa Email</label>
+        <label for="email" class="form-label">Ingrese Email</label>
         <input
           type="email"
           id="email"
@@ -36,13 +36,13 @@
         />
       </div>
       <div class="mb-3">
-        <label for="password" class="form-label">Ingresa Contraseña</label>
+        <label for="password" class="form-label">Ingrese Contraseña</label>
         <input
           type="password"
           id="password"
           v-model="password"
           class="form-control"
-          placeholder="Tu contraseña"
+          placeholder="Contraseña"
           required
         />
       </div>

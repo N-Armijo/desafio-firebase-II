@@ -1,10 +1,18 @@
 <script setup>
+  import { ref, onMounted } from 'vue'
   import { RouterLink, RouterView } from 'vue-router'
-  import { signOut } from 'firebase/auth'
+  import { signOut, onAuthStateChanged } from 'firebase/auth'
   import { $auth } from './firebaseApp'
   import { useRouter } from 'vue-router'
 
   const router = useRouter()
+  const isAuthenticated = ref(false)  
+  onMounted(() => {
+    onAuthStateChanged($auth, (user) => {
+      isAuthenticated.value = !!user 
+    })
+  })
+
   const handleSignOut = async () => {
     try {
       await signOut($auth)
@@ -15,6 +23,7 @@
     }
   }
 </script>
+
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
@@ -32,16 +41,13 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <RouterLink to="/" class="nav-link">Home</RouterLink>
+          <li class="nav-item" v-if="!isAuthenticated">
+            <RouterLink to="/login" class="nav-link">Login</RouterLink>
           </li>
-          <li class="nav-item">
-            <RouterLink :to="{ name: 'login' }" class="nav-link">Login</RouterLink>
+          <li class="nav-item" v-if="!isAuthenticated">
+            <RouterLink to="/signup" class="nav-link">Sign Up</RouterLink>
           </li>
-          <li class="nav-item">
-            <RouterLink :to="{ name: 'signup' }" class="nav-link">Sign Up</RouterLink>
-          </li>
-          <li class="nav-item">
+          <li class="nav-item" v-if="isAuthenticated">
             <button @click="handleSignOut" class="btn btn-outline-danger ms-3">Sign Out</button>
           </li>
         </ul>
