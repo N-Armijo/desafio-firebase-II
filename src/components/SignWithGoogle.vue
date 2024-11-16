@@ -8,6 +8,10 @@
   const signInWithGoogle = async () => {
     try {
       const provider = new GoogleAuthProvider()
+      provider.setCustomParameters({
+        prompt: 'select_account'  
+      })
+      
       await signInWithPopup($auth, provider)
       router.push({ name: 'home' })
     } catch (error) {
@@ -16,5 +20,5 @@
   }
 </script>
 <template>
-  <button @click="signInWithGoogle" class="btn btn-secondary w-100 mt-2">Accede con Google</button>
+  <button @click="signInWithGoogle" class="btn btn-secondary w-100 mt-2">Acceder con Google</button>
 </template>
