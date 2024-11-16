@@ -20,5 +20,5 @@
   }
 </script>
 <template>
-  <button @click="signInWithGoogle" class="btn btn-secondary w-100 mt-2">Acceder con Google</button>
+  <button @click="signInWithGoogle" class="btn btn-secondary w-100 mt-2"><i class="fa-brands fa-google"></i> Acceder con Google</button>
 </template>
