@@ -1,0 +1,12 @@
+specVersion: "v1beta"
+serviceId: "desafio_firebase2"
+location: "us-central1"
+schema:
+  source: "./schema"
+  datasource:
+    postgresql:
+      database: "fdcdb"
+      cloudSql:
+        instanceId: "desafio_firebase2-fdc"
+      # schemaValidation: "COMPATIBLE"
+connectorDirs: ["./connector"]
