@@ -1,6 +1,9 @@
 # desafio_firebase2
 
-This template should help get you started developing with Vue 3 in Vite.
+## Live Demo
+
+El proyecto está desplegado en Firebase Hosting y puedes acceder al siguiente enlace:  
+[https://d-firebase-ii.web.app/signup](https://d-firebase-ii.web.app/signup)
 
 ## Recommended IDE Setup
 
